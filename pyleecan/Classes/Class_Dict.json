@@ -2062,7 +2062,7 @@
                 "name": "Jrms_max",
                 "size": "",
                 "type": "float",
-                "unit": "A/m\u00b2",
+                "unit": "A/m\u00c2\u00b2",
                 "value": null
             },
             {
@@ -11269,7 +11269,7 @@
                 "name": "Jrms",
                 "size": "",
                 "type": "float",
-                "unit": "A/m\u00b2",
+                "unit": "A/m\u00c2\u00b2",
                 "value": null
             },
             {
@@ -13985,6 +13985,7 @@
             "SlotW28",
             "SlotW29",
             "SlotW30",
+            "SlotW31B",
             "SlotW60",
             "SlotW61",
             "SlotW62",
@@ -14014,6 +14015,7 @@
             "get_is_stator",
             "get_name_lam",
             "get_Rbo",
+            "get_Ryoke",
             "get_surface",
             "get_surface_tooth",
             "get_surface_wedges",
@@ -17191,6 +17193,196 @@
                 "type": "float",
                 "unit": "m",
                 "value": 0.001
+            }
+        ]
+    },
+    "SlotW31B": {
+        "constants": [
+            {
+                "name": "VERSION",
+                "value": "1"
+            },
+            {
+                "name": "IS_SYMMETRICAL",
+                "value": "1"
+            }
+        ],
+        "daughters": [],
+        "desc": "Open slot with back width and back angle",
+        "is_internal": false,
+        "methods": [
+            "_comp_line_dict",
+            "_comp_point_coordinate",
+            "build_geometry",
+            "check",
+            "comp_angle_opening",
+            "get_H1",
+            "get_H2",
+            "comp_surface",
+            "comp_surface_opening",
+            "get_surface_active",
+            "get_surface_opening",
+            "plot_schematics",
+            "build_geometry_active"
+        ],
+        "mother": "Slot",
+        "name": "SlotW31B",
+        "package": "Slot",
+        "path": "pyleecan/Generator/ClassesRef/Slot/SlotW31B.csv",
+        "properties": [
+            {
+                "as_dict": "",
+                "desc": "Slot opening.",
+                "max": "",
+                "min": "0",
+                "name": "W0",
+                "size": "0",
+                "type": "float",
+                "unit": "m",
+                "value": 0.0015
+            },
+            {
+                "as_dict": "",
+                "desc": "Slot tooth thickness.",
+                "max": "",
+                "min": "0",
+                "name": "W1",
+                "size": "0",
+                "type": "float",
+                "unit": "m",
+                "value": 0.004
+            },
+            {
+                "as_dict": "",
+                "desc": "Slot back width.",
+                "max": "",
+                "min": "0",
+                "name": "W2",
+                "size": "0",
+                "type": "float",
+                "unit": "m",
+                "value": 0.004
+            },
+            {
+                "as_dict": "",
+                "desc": "Slot tip height.",
+                "max": "",
+                "min": "0",
+                "name": "H0",
+                "size": "0",
+                "type": "float",
+                "unit": "m",
+                "value": 0.001
+            },
+            {
+                "as_dict": "",
+                "desc": "Slot height or angle  (See Schematics)",
+                "max": "",
+                "min": "0",
+                "name": "H1",
+                "size": "0",
+                "type": "float",
+                "unit": "m/rad",
+                "value": 2.04
+            },
+            {
+                "as_dict": "",
+                "desc": "Slot back height or angle  (See Schematics)",
+                "max": "",
+                "min": "0",
+                "name": "H2",
+                "size": "0",
+                "type": "float",
+                "unit": "m/rad",
+                "value": 1.5708
+            },
+            {
+                "as_dict": "",
+                "desc": "Slot yoke thickness.",
+                "max": "",
+                "min": "0",
+                "name": "H3",
+                "size": "0",
+                "type": "float",
+                "unit": "m",
+                "value": 0.002
+            },
+            {
+                "as_dict": "",
+                "desc": "H1 unit, 0 for m, 1 for rad",
+                "max": "",
+                "min": "",
+                "name": "H1_is_rad",
+                "size": "0",
+                "type": "bool",
+                "unit": "-",
+                "value": 1
+            },
+            {
+                "as_dict": "",
+                "desc": "H2 unit, 0 for m, 1 for rad",
+                "max": "",
+                "min": "",
+                "name": "H2_is_rad",
+                "size": "0",
+                "type": "bool",
+                "unit": "-",
+                "value": 1
+            },
+            {
+                "as_dict": "",
+                "desc": "Slot bore isolation thickness.",
+                "max": "",
+                "min": "0",
+                "name": "i_bore",
+                "size": "0",
+                "type": "float",
+                "unit": "m",
+                "value": 0.0004
+            },
+            {
+                "as_dict": "",
+                "desc": "Slot tooth isolation thickness.",
+                "max": "",
+                "min": "0",
+                "name": "i_tooth",
+                "size": "0",
+                "type": "float",
+                "unit": "m",
+                "value": 0.0005
+            },
+            {
+                "as_dict": "",
+                "desc": "Slot yoke isolation thickness.",
+                "max": "",
+                "min": "0",
+                "name": "i_yoke",
+                "size": "0",
+                "type": "float",
+                "unit": "m",
+                "value": 0.0006
+            },
+            {
+                "as_dict": "",
+                "desc": "Slot isolation between tangential layers.",
+                "max": "",
+                "min": "0",
+                "name": "i_tan",
+                "size": "0",
+                "type": "float",
+                "unit": "m",
+                "value": 0.0005
+            },
+            {
+                "as_dict": "",
+                "desc": "Slot isolation between radial layers.",
+                "max": "",
+                "min": "0",
+                "name": "i_rad",
+                "size": "0",
+                "type": "float",
+                "unit": "m",
+                "value": 0.0005
             }
         ]
     },

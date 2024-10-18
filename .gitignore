@@ -26,3 +26,5 @@ run_GUI_internal.py
 /dist
 node_modules
 /.venv
+/venv39
+/MZEC Data/

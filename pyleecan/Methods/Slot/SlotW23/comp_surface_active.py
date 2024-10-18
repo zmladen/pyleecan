@@ -36,5 +36,4 @@ def comp_surface_active(self):
     else:
         Rslot = Rbo - self.comp_height()  # External radius of the slot
         alpha = float(2 * arcsin(self.W2 / (2 * Rslot)))  # W2 in rad
-        S3 = (Rslot**2.0) / 2.0 * (alpha - sin(alpha))
-        return S2 - S3
+        S3 = Rslot**2.0

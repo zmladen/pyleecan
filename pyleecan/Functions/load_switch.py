@@ -240,6 +240,7 @@ load_switch = {
     "SlotW28": SlotW28,
     "SlotW29": SlotW29,
     "SlotW30": SlotW30,
+    "SlotW31B": SlotW31B,
     "SlotW60": SlotW60,
     "SlotW61": SlotW61,
     "SlotW62": SlotW62,
