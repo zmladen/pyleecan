@@ -14,6 +14,7 @@ def build_geometry(self):
         A list of 6 Segment and 1 Arc
 
     """
+    self.check()
 
     line_dict = self._comp_line_dict()
 

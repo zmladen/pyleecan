@@ -18,7 +18,6 @@ def _comp_point_coordinate(self):
     point_dict: dict
         A dict of the slot coordinates
     """
-
     Rbo = self.get_Rbo()
     Ryoke = self.get_Ryoke()
     # Length of lines to calculate intersections
@@ -113,6 +112,7 @@ def _comp_point_coordinate(self):
             Z2l5 = Z1l5 + 1j * L  # Vertical line
             Z4 = inter_line_line(Z1l1, Z2l1, Z1l5, Z2l5)[0]
 
+    # Add the points to dictionary
     point_dict = dict()
 
     point_dict["Z1"] = Z1
@@ -168,6 +168,32 @@ def _comp_point_coordinate(self):
     point_dict["Z16"] = Z13.conjugate()
     point_dict["Z17"] = Z12.conjugate()
     point_dict["Z18"] = Z11.conjugate()
+
+    # Add additional isolation points needed to create surface_opening surfaces
+    Z1_l_tan = 0 - self.i_tan / 2 * 1j
+    Z2_l_tan = L - self.i_tan / 2 * 1j
+
+    if self.i_tan < self.W2:
+        Z14_i_tan = next(
+            (
+                Z
+                for Z in inter_line_circle(Z1_l_tan, Z2_l_tan, np_abs(Z14), 0j)
+                if Z.real > 0 and Z.imag < 0
+            ),
+            None,
+        )
+    else:
+        Z14_i_tan = inter_line_line(Z1_l_tan, Z2_l_tan, Z13, Z14)[0]
+
+    if np_abs(Z11 - Z11.conjugate()) > self.i_tan:
+        Z11_i_tan = inter_line_line(Z1_l_tan, Z2_l_tan, Z11, Z11.conjugate())[0]
+    else:
+        Z11_i_tan = inter_line_line(Z1_l_tan, Z2_l_tan, Z11, Z12)[0]
+
+    point_dict["Z14*"] = Z14_i_tan
+    point_dict["Z15*"] = Z14_i_tan.conjugate()
+    point_dict["Z11*"] = Z11_i_tan
+    point_dict["Z18*"] = Z11_i_tan.conjugate()
 
     # fig, ax = plt.subplots()
 

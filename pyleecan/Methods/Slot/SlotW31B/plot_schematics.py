@@ -392,10 +392,35 @@ def plot_schematics(
                 linewidth=MAIN_LINE_WIDTH,
             )
 
+            # i_tan lines
+            line = Segment(
+                0 + self.i_tan / 2 * 1j, point_dict["Z15"].real + self.i_tan / 2 * 1j
+            )
+            line.plot(
+                fig=fig,
+                ax=ax,
+                color=MAIN_LINE_COLOR,
+                linestyle=MAIN_LINE_STYLE,
+                linewidth=MAIN_LINE_WIDTH,
+            )
+            line = Segment(
+                0 - self.i_tan / 2 * 1j, point_dict["Z15"].real - self.i_tan / 2 * 1j
+            )
+            line.plot(
+                fig=fig,
+                ax=ax,
+                color=MAIN_LINE_COLOR,
+                linestyle=MAIN_LINE_STYLE,
+                linewidth=MAIN_LINE_WIDTH,
+            )
+
         if type_add_active in [1, 3]:  # Wind and Wedge
             is_add_wedge = type_add_active == 3
             self.plot_active(
-                fig=fig, ax=ax, is_show_fig=False, is_add_wedge=is_add_wedge
+                fig=fig,
+                ax=ax,
+                is_show_fig=False,
+                is_add_wedge=is_add_wedge,
             )
         elif type_add_active == 2:  # Magnet
             self.plot_active(
