@@ -1,6 +1,7 @@
 Variable name,Unit,Description (EN),Size,Type,Default value,Minimum value,Maximum value,as_dict Type
 begin,-,begin point of the line,0,complex,0,,
 end,-,end point of the line,0,complex,0,,
+is_ref,-,sets the segment to be reference. Important for wire placement,0,bool,False,,
 ,
 Package,Inherit,Methods,Constant Name,Constant Value,Class description
 Geometry,Line,check,VERSION,1,A segment between two points

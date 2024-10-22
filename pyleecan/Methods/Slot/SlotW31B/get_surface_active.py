@@ -22,29 +22,6 @@ def get_surface_active(self, alpha=0, delta=0):
     # Create curve list
     line_dict = self._comp_line_dict()
 
-    # if self.get_H1() != 0:
-    #     curve_list = [
-    #         line_dict["3-4"],
-    #         line_dict["4-5"],
-    #         line_dict["5-6"],
-    #         line_dict["6-7"],
-    #         line_dict["7-8"],
-    #         line_dict["8-3"],
-    #     ]
-    # else:
-    #     # Add 2-3 and 7-2 to make sure that FEMM handles all the lines
-    #     # cf (Tests\Validation\Magnetics\test_FEMM_fast_draw.py)
-    #     curve_list = [
-    #         line_dict["2-3"],
-    #         line_dict["3-4"],
-    #         line_dict["4-5"],
-    #         line_dict["5-6"],
-    #         line_dict["6-7"],
-    #         line_dict["7-8"],
-    #         line_dict["8-9"],
-    #         line_dict["9-2"],
-    #     ]
-
     curve_list = [
         line_dict["11-12"],
         line_dict["12-13"],

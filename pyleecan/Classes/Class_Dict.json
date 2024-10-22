@@ -13444,6 +13444,17 @@
                 "type": "complex",
                 "unit": "-",
                 "value": 0
+            },
+            {
+                "as_dict": "",
+                "desc": "sets the segment to be reference. Important for wire placement",
+                "max": "",
+                "min": "",
+                "name": "is_ref",
+                "size": "0",
+                "type": "bool",
+                "unit": "-",
+                "value": false
             }
         ]
     },
@@ -17222,8 +17233,14 @@
             "comp_surface_opening",
             "get_surface_active",
             "get_surface_opening",
+            "build_geometry_active",
+            "get_wire_coordinate",
+            "get_wire_coordinateNew",
+            "get_Wwire",
+            "get_dim_wind",
+            "get_conductor",
             "plot_schematics",
-            "build_geometry_active"
+            "plot_active"
         ],
         "mother": "Slot",
         "name": "SlotW31B",
@@ -18347,6 +18364,12 @@
             "get_lines",
             "get_patches",
             "plot_lines",
+            "_get_adj_line",
+            "_get_bounding_box",
+            "_get_hexagonal_grid",
+            "_get_init_wire_coordinate",
+            "_get_ref_line",
+            "_get_wire_coordinate",
             "rotate",
             "scale",
             "translate"

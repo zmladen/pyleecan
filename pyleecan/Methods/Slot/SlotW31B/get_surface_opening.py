@@ -166,4 +166,10 @@ def get_surface_opening(self, alpha=0, delta=0):
     label = self.parent.get_label() + "_" + SOP_LAB + "_R0-T0-S8"
     S8 = SurfLine(line_list=curve_list, label=label, point_ref=Zmid)
 
-    return [S1, S2, S3, S4, S5, S6, S7, S8]
+    # Apply transformation
+    surfaces = [S1, S2, S3, S4, S5, S6, S7, S8]
+    for surface in surfaces:
+        surface.rotate(alpha)
+        surface.translate(delta)
+
+    return surfaces

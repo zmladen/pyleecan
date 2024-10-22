@@ -73,14 +73,44 @@ except ImportError as error:
     get_surface_opening = error
 
 try:
+    from ..Methods.Slot.SlotW31B.build_geometry_active import build_geometry_active
+except ImportError as error:
+    build_geometry_active = error
+
+try:
+    from ..Methods.Slot.SlotW31B.get_wire_coordinate import get_wire_coordinate
+except ImportError as error:
+    get_wire_coordinate = error
+
+try:
+    from ..Methods.Slot.SlotW31B.get_wire_coordinateNew import get_wire_coordinateNew
+except ImportError as error:
+    get_wire_coordinateNew = error
+
+try:
+    from ..Methods.Slot.SlotW31B.get_Wwire import get_Wwire
+except ImportError as error:
+    get_Wwire = error
+
+try:
+    from ..Methods.Slot.SlotW31B.get_dim_wind import get_dim_wind
+except ImportError as error:
+    get_dim_wind = error
+
+try:
+    from ..Methods.Slot.SlotW31B.get_conductor import get_conductor
+except ImportError as error:
+    get_conductor = error
+
+try:
     from ..Methods.Slot.SlotW31B.plot_schematics import plot_schematics
 except ImportError as error:
     plot_schematics = error
 
 try:
-    from ..Methods.Slot.SlotW31B.build_geometry_active import build_geometry_active
+    from ..Methods.Slot.SlotW31B.plot_active import plot_active
 except ImportError as error:
-    build_geometry_active = error
+    plot_active = error
 
 
 from numpy import isnan
@@ -214,17 +244,6 @@ class SlotW31B(Slot):
         )
     else:
         get_surface_opening = get_surface_opening
-    # cf Methods.Slot.SlotW31B.plot_schematics
-    if isinstance(plot_schematics, ImportError):
-        plot_schematics = property(
-            fget=lambda x: raise_(
-                ImportError(
-                    "Can't use SlotW31B method plot_schematics: " + str(plot_schematics)
-                )
-            )
-        )
-    else:
-        plot_schematics = plot_schematics
     # cf Methods.Slot.SlotW31B.build_geometry_active
     if isinstance(build_geometry_active, ImportError):
         build_geometry_active = property(
@@ -237,6 +256,83 @@ class SlotW31B(Slot):
         )
     else:
         build_geometry_active = build_geometry_active
+    # cf Methods.Slot.SlotW31B.get_wire_coordinate
+    if isinstance(get_wire_coordinate, ImportError):
+        get_wire_coordinate = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SlotW31B method get_wire_coordinate: "
+                    + str(get_wire_coordinate)
+                )
+            )
+        )
+    else:
+        get_wire_coordinate = get_wire_coordinate
+    # cf Methods.Slot.SlotW31B.get_wire_coordinateNew
+    if isinstance(get_wire_coordinateNew, ImportError):
+        get_wire_coordinateNew = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SlotW31B method get_wire_coordinateNew: "
+                    + str(get_wire_coordinateNew)
+                )
+            )
+        )
+    else:
+        get_wire_coordinateNew = get_wire_coordinateNew
+    # cf Methods.Slot.SlotW31B.get_Wwire
+    if isinstance(get_Wwire, ImportError):
+        get_Wwire = property(
+            fget=lambda x: raise_(
+                ImportError("Can't use SlotW31B method get_Wwire: " + str(get_Wwire))
+            )
+        )
+    else:
+        get_Wwire = get_Wwire
+    # cf Methods.Slot.SlotW31B.get_dim_wind
+    if isinstance(get_dim_wind, ImportError):
+        get_dim_wind = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SlotW31B method get_dim_wind: " + str(get_dim_wind)
+                )
+            )
+        )
+    else:
+        get_dim_wind = get_dim_wind
+    # cf Methods.Slot.SlotW31B.get_conductor
+    if isinstance(get_conductor, ImportError):
+        get_conductor = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SlotW31B method get_conductor: " + str(get_conductor)
+                )
+            )
+        )
+    else:
+        get_conductor = get_conductor
+    # cf Methods.Slot.SlotW31B.plot_schematics
+    if isinstance(plot_schematics, ImportError):
+        plot_schematics = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SlotW31B method plot_schematics: " + str(plot_schematics)
+                )
+            )
+        )
+    else:
+        plot_schematics = plot_schematics
+    # cf Methods.Slot.SlotW31B.plot_active
+    if isinstance(plot_active, ImportError):
+        plot_active = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SlotW31B method plot_active: " + str(plot_active)
+                )
+            )
+        )
+    else:
+        plot_active = plot_active
     # generic save method is available in all object
     save = save
     # get_logger method is available in all object

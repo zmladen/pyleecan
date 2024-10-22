@@ -58,6 +58,38 @@ except ImportError as error:
     plot_lines = error
 
 try:
+    from ..Methods.Geometry.SurfLine._get_adj_line import _get_adj_line
+except ImportError as error:
+    _get_adj_line = error
+
+try:
+    from ..Methods.Geometry.SurfLine._get_bounding_box import _get_bounding_box
+except ImportError as error:
+    _get_bounding_box = error
+
+try:
+    from ..Methods.Geometry.SurfLine._get_hexagonal_grid import _get_hexagonal_grid
+except ImportError as error:
+    _get_hexagonal_grid = error
+
+try:
+    from ..Methods.Geometry.SurfLine._get_init_wire_coordinate import (
+        _get_init_wire_coordinate,
+    )
+except ImportError as error:
+    _get_init_wire_coordinate = error
+
+try:
+    from ..Methods.Geometry.SurfLine._get_ref_line import _get_ref_line
+except ImportError as error:
+    _get_ref_line = error
+
+try:
+    from ..Methods.Geometry.SurfLine._get_wire_coordinate import _get_wire_coordinate
+except ImportError as error:
+    _get_wire_coordinate = error
+
+try:
     from ..Methods.Geometry.SurfLine.rotate import rotate
 except ImportError as error:
     rotate = error
@@ -163,6 +195,76 @@ class SurfLine(Surface):
         )
     else:
         plot_lines = plot_lines
+    # cf Methods.Geometry.SurfLine._get_adj_line
+    if isinstance(_get_adj_line, ImportError):
+        _get_adj_line = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SurfLine method _get_adj_line: " + str(_get_adj_line)
+                )
+            )
+        )
+    else:
+        _get_adj_line = _get_adj_line
+    # cf Methods.Geometry.SurfLine._get_bounding_box
+    if isinstance(_get_bounding_box, ImportError):
+        _get_bounding_box = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SurfLine method _get_bounding_box: "
+                    + str(_get_bounding_box)
+                )
+            )
+        )
+    else:
+        _get_bounding_box = _get_bounding_box
+    # cf Methods.Geometry.SurfLine._get_hexagonal_grid
+    if isinstance(_get_hexagonal_grid, ImportError):
+        _get_hexagonal_grid = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SurfLine method _get_hexagonal_grid: "
+                    + str(_get_hexagonal_grid)
+                )
+            )
+        )
+    else:
+        _get_hexagonal_grid = _get_hexagonal_grid
+    # cf Methods.Geometry.SurfLine._get_init_wire_coordinate
+    if isinstance(_get_init_wire_coordinate, ImportError):
+        _get_init_wire_coordinate = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SurfLine method _get_init_wire_coordinate: "
+                    + str(_get_init_wire_coordinate)
+                )
+            )
+        )
+    else:
+        _get_init_wire_coordinate = _get_init_wire_coordinate
+    # cf Methods.Geometry.SurfLine._get_ref_line
+    if isinstance(_get_ref_line, ImportError):
+        _get_ref_line = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SurfLine method _get_ref_line: " + str(_get_ref_line)
+                )
+            )
+        )
+    else:
+        _get_ref_line = _get_ref_line
+    # cf Methods.Geometry.SurfLine._get_wire_coordinate
+    if isinstance(_get_wire_coordinate, ImportError):
+        _get_wire_coordinate = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SurfLine method _get_wire_coordinate: "
+                    + str(_get_wire_coordinate)
+                )
+            )
+        )
+    else:
+        _get_wire_coordinate = _get_wire_coordinate
     # cf Methods.Geometry.SurfLine.rotate
     if isinstance(rotate, ImportError):
         rotate = property(

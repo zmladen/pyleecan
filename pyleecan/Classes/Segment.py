@@ -319,7 +319,15 @@ class Segment(Line):
     # get_logger method is available in all object
     get_logger = get_logger
 
-    def __init__(self, begin=0, end=0, prop_dict=None, init_dict=None, init_str=None):
+    def __init__(
+        self,
+        begin=0,
+        end=0,
+        is_ref=False,
+        prop_dict=None,
+        init_dict=None,
+        init_str=None,
+    ):
         """Constructor of the class. Can be use in three ways :
         - __init__ (arg1 = 1, arg3 = 5) every parameters have name and default values
             for pyleecan type, -1 will call the default constructor
@@ -339,11 +347,14 @@ class Segment(Line):
                 begin = init_dict["begin"]
             if "end" in list(init_dict.keys()):
                 end = init_dict["end"]
+            if "is_ref" in list(init_dict.keys()):
+                is_ref = init_dict["is_ref"]
             if "prop_dict" in list(init_dict.keys()):
                 prop_dict = init_dict["prop_dict"]
         # Set the properties (value check and convertion are done in setter)
         self.begin = begin
         self.end = end
+        self.is_ref = is_ref
         # Call Line init
         super(Segment, self).__init__(prop_dict=prop_dict)
         # The class is frozen (in Line init), for now it's impossible to
@@ -357,6 +368,7 @@ class Segment(Line):
         Segment_str += super(Segment, self).__str__()
         Segment_str += "begin = " + str(self.begin) + linesep
         Segment_str += "end = " + str(self.end) + linesep
+        Segment_str += "is_ref = " + str(self.is_ref) + linesep
         return Segment_str
 
     def __eq__(self, other):
@@ -371,6 +383,8 @@ class Segment(Line):
         if other.begin != self.begin:
             return False
         if other.end != self.end:
+            return False
+        if other.is_ref != self.is_ref:
             return False
         return True
 
@@ -405,6 +419,18 @@ class Segment(Line):
                 diff_list.append(name + ".end" + val_str)
             else:
                 diff_list.append(name + ".end")
+        if other._is_ref != self._is_ref:
+            if is_add_value:
+                val_str = (
+                    " (self="
+                    + str(self._is_ref)
+                    + ", other="
+                    + str(other._is_ref)
+                    + ")"
+                )
+                diff_list.append(name + ".is_ref" + val_str)
+            else:
+                diff_list.append(name + ".is_ref")
         # Filter ignore differences
         diff_list = list(filter(lambda x: x not in ignore_list, diff_list))
         return diff_list
@@ -418,6 +444,7 @@ class Segment(Line):
         S += super(Segment, self).__sizeof__()
         S += getsizeof(self.begin)
         S += getsizeof(self.end)
+        S += getsizeof(self.is_ref)
         return S
 
     def as_dict(self, type_handle_ndarray=0, keep_function=False, **kwargs):
@@ -449,6 +476,7 @@ class Segment(Line):
             Segment_dict["end"] = self.end
         else:
             Segment_dict["end"] = str(self.end)
+        Segment_dict["is_ref"] = self.is_ref
         # The class name is added to the dict for deserialisation purpose
         # Overwrite the mother class name
         Segment_dict["__class__"] = "Segment"
@@ -460,12 +488,15 @@ class Segment(Line):
         # Handle deepcopy of all the properties
         begin_val = self.begin
         end_val = self.end
+        is_ref_val = self.is_ref
         if self.prop_dict is None:
             prop_dict_val = None
         else:
             prop_dict_val = self.prop_dict.copy()
         # Creates new object of the same type with the copied properties
-        obj_copy = type(self)(begin=begin_val, end=end_val, prop_dict=prop_dict_val)
+        obj_copy = type(self)(
+            begin=begin_val, end=end_val, is_ref=is_ref_val, prop_dict=prop_dict_val
+        )
         return obj_copy
 
     def _set_None(self):
@@ -473,6 +504,7 @@ class Segment(Line):
 
         self.begin = None
         self.end = None
+        self.is_ref = None
         # Set to None the properties inherited from Line
         super(Segment, self)._set_None()
 
@@ -513,5 +545,23 @@ class Segment(Line):
         doc="""end point of the line
 
         :Type: complex
+        """,
+    )
+
+    def _get_is_ref(self):
+        """getter of is_ref"""
+        return self._is_ref
+
+    def _set_is_ref(self, value):
+        """setter of is_ref"""
+        check_var("is_ref", value, "bool")
+        self._is_ref = value
+
+    is_ref = property(
+        fget=_get_is_ref,
+        fset=_set_is_ref,
+        doc="""sets the segment to be reference. Important for wire placement
+
+        :Type: bool
         """,
     )

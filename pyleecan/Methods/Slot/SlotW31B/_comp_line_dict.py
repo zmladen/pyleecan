@@ -66,11 +66,11 @@ def _comp_line_dict(self):
 
     # Add isolation lines
     line_dict["11-12"] = Segment(Z11, Z12)
-    line_dict["12-13"] = Segment(Z12, Z13)
+    line_dict["12-13"] = Segment(Z12, Z13, is_ref=True)
     line_dict["13-14"] = Segment(Z13, Z14)
     line_dict["14-15"] = Arc1(Z14, Z15, abs(Z15))
     line_dict["15-16"] = Segment(Z15, Z16)
-    line_dict["16-17"] = Segment(Z16, Z17)
+    line_dict["16-17"] = Segment(Z16, Z17, is_ref=True)
     line_dict["17-18"] = Segment(Z17, Z18)
     line_dict["18-11"] = Segment(Z18, Z11)
 
