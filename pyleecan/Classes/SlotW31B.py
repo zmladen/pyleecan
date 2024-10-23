@@ -93,6 +93,26 @@ except ImportError as error:
     get_Wwire = error
 
 try:
+    from ..Methods.Slot.SlotW31B.get_Nwppc import get_Nwppc
+except ImportError as error:
+    get_Nwppc = error
+
+try:
+    from ..Methods.Slot.SlotW31B.get_Wins_cond import get_Wins_cond
+except ImportError as error:
+    get_Wins_cond = error
+
+try:
+    from ..Methods.Slot.SlotW31B.get_Wins_wire import get_Wins_wire
+except ImportError as error:
+    get_Wins_wire = error
+
+try:
+    from ..Methods.Slot.SlotW31B.get_Kwoh import get_Kwoh
+except ImportError as error:
+    get_Kwoh = error
+
+try:
     from ..Methods.Slot.SlotW31B.get_dim_wind import get_dim_wind
 except ImportError as error:
     get_dim_wind = error
@@ -111,6 +131,11 @@ try:
     from ..Methods.Slot.SlotW31B.plot_active import plot_active
 except ImportError as error:
     plot_active = error
+
+try:
+    from ..Methods.Slot.SlotW31B.plot import plot
+except ImportError as error:
+    plot = error
 
 
 from numpy import isnan
@@ -289,6 +314,46 @@ class SlotW31B(Slot):
         )
     else:
         get_Wwire = get_Wwire
+    # cf Methods.Slot.SlotW31B.get_Nwppc
+    if isinstance(get_Nwppc, ImportError):
+        get_Nwppc = property(
+            fget=lambda x: raise_(
+                ImportError("Can't use SlotW31B method get_Nwppc: " + str(get_Nwppc))
+            )
+        )
+    else:
+        get_Nwppc = get_Nwppc
+    # cf Methods.Slot.SlotW31B.get_Wins_cond
+    if isinstance(get_Wins_cond, ImportError):
+        get_Wins_cond = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SlotW31B method get_Wins_cond: " + str(get_Wins_cond)
+                )
+            )
+        )
+    else:
+        get_Wins_cond = get_Wins_cond
+    # cf Methods.Slot.SlotW31B.get_Wins_wire
+    if isinstance(get_Wins_wire, ImportError):
+        get_Wins_wire = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SlotW31B method get_Wins_wire: " + str(get_Wins_wire)
+                )
+            )
+        )
+    else:
+        get_Wins_wire = get_Wins_wire
+    # cf Methods.Slot.SlotW31B.get_Kwoh
+    if isinstance(get_Kwoh, ImportError):
+        get_Kwoh = property(
+            fget=lambda x: raise_(
+                ImportError("Can't use SlotW31B method get_Kwoh: " + str(get_Kwoh))
+            )
+        )
+    else:
+        get_Kwoh = get_Kwoh
     # cf Methods.Slot.SlotW31B.get_dim_wind
     if isinstance(get_dim_wind, ImportError):
         get_dim_wind = property(
@@ -333,6 +398,15 @@ class SlotW31B(Slot):
         )
     else:
         plot_active = plot_active
+    # cf Methods.Slot.SlotW31B.plot
+    if isinstance(plot, ImportError):
+        plot = property(
+            fget=lambda x: raise_(
+                ImportError("Can't use SlotW31B method plot: " + str(plot))
+            )
+        )
+    else:
+        plot = plot
     # generic save method is available in all object
     save = save
     # get_logger method is available in all object

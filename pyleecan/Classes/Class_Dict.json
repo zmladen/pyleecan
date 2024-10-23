@@ -793,6 +793,103 @@
             }
         ]
     },
+    "CondType12B": {
+        "constants": [
+            {
+                "name": "VERSION",
+                "value": "1"
+            }
+        ],
+        "daughters": [],
+        "desc": "parallel stranded conductor consisting of at least a single round wire",
+        "is_internal": false,
+        "methods": [
+            "check",
+            "comp_surface_active",
+            "comp_height",
+            "comp_surface",
+            "comp_width",
+            "plot",
+            "plot_schematics",
+            "comp_width_wire",
+            "comp_height_wire",
+            "comp_nb_circumferential_wire",
+            "comp_nb_radial_wire",
+            "is_round_wire"
+        ],
+        "mother": "Conductor",
+        "name": "CondType12B",
+        "package": "Machine",
+        "path": "pyleecan/Generator/ClassesRef/Machine/CondType12B.csv",
+        "properties": [
+            {
+                "as_dict": "",
+                "desc": "cf schematics, single strand diameter without insulation",
+                "max": "",
+                "min": "0",
+                "name": "Wwire",
+                "size": "0",
+                "type": "float",
+                "unit": "m",
+                "value": 0.015
+            },
+            {
+                "as_dict": "",
+                "desc": "(advanced) cf schematics, conductor diameter",
+                "max": "",
+                "min": "0",
+                "name": "Wins_cond",
+                "size": "0",
+                "type": "float",
+                "unit": "m",
+                "value": null
+            },
+            {
+                "as_dict": "",
+                "desc": "number of strands in parallel per conductor",
+                "max": "",
+                "min": "1",
+                "name": "Nwppc",
+                "size": "0",
+                "type": "int",
+                "unit": "-",
+                "value": 1
+            },
+            {
+                "as_dict": "",
+                "desc": "(advanced) cf schematics, winding strand insulation thickness",
+                "max": "",
+                "min": "0",
+                "name": "Wins_wire",
+                "size": "0",
+                "type": "float",
+                "unit": "m",
+                "value": 0
+            },
+            {
+                "as_dict": "",
+                "desc": "winding overhang factor which describes the fact that random round wire end-windings can be more or less compressed (0.5 for small motors, 0.8 for large motors) - can be used to tune the average turn length (relevant if type_cond==1)",
+                "max": "",
+                "min": "0",
+                "name": "Kwoh",
+                "size": "0",
+                "type": "float",
+                "unit": "-",
+                "value": 0.5
+            },
+            {
+                "as_dict": "",
+                "desc": "origin point of the conductor",
+                "max": "",
+                "min": "",
+                "name": "origin",
+                "size": "0",
+                "type": "complex",
+                "unit": "-",
+                "value": 0
+            }
+        ]
+    },
     "CondType13": {
         "constants": [
             {
@@ -998,6 +1095,7 @@
         "daughters": [
             "CondType11",
             "CondType12",
+            "CondType12B",
             "CondType13",
             "CondType21",
             "CondType22"
@@ -17237,10 +17335,15 @@
             "get_wire_coordinate",
             "get_wire_coordinateNew",
             "get_Wwire",
+            "get_Nwppc",
+            "get_Wins_cond",
+            "get_Wins_wire",
+            "get_Kwoh",
             "get_dim_wind",
             "get_conductor",
             "plot_schematics",
-            "plot_active"
+            "plot_active",
+            "plot"
         ],
         "mother": "Slot",
         "name": "SlotW31B",

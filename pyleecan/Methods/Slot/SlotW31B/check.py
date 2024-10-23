@@ -14,8 +14,8 @@ def check(self):
     None
     """
 
-    if self.i_tan == 0:
-        raise SlotW31BIsolationCheckError("You must have i_tan > 0")
+    # if self.i_tan == 0:
+    #     raise SlotW31BIsolationCheckError("You must have i_tan > 0")
 
     if self.i_bore == 0:
         raise SlotW31BIsolationCheckError("You must have i_bore > 0")

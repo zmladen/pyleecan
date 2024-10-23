@@ -11,3 +11,6 @@
 [x] get_surface_active
 [x] get_surface_opening
 [x] plot_schematics
+
+# You can delete plot_active.
+# Maybe keep only plot (which can now visualize the windings)

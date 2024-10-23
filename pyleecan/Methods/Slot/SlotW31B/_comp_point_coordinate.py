@@ -178,7 +178,7 @@ def _comp_point_coordinate(self):
             (
                 Z
                 for Z in inter_line_circle(Z1_l_tan, Z2_l_tan, np_abs(Z14), 0j)
-                if Z.real > 0 and Z.imag < 0
+                if Z.real >= 0 and Z.imag <= 0
             ),
             None,
         )

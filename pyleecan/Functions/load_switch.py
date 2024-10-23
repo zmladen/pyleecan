@@ -18,6 +18,7 @@ load_switch = {
     "Circle": Circle,
     "CondType11": CondType11,
     "CondType12": CondType12,
+    "CondType12B": CondType12B,
     "CondType13": CondType13,
     "CondType21": CondType21,
     "CondType22": CondType22,

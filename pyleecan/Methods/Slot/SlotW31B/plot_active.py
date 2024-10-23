@@ -121,7 +121,9 @@ def plot_active(
         circles = []
 
         for surface in surf_list:
-            w_cord = surface._get_wire_coordinate(self.get_Wwire(), self.is_outwards())
+            w_cord = surface._get_wire_coordinate(
+                self.get_Wins_cond(), self.is_outwards()
+            )
 
             for jj in range(Zs):
 

@@ -16,6 +16,7 @@ from ..Classes.BoreUD import BoreUD
 from ..Classes.Circle import Circle
 from ..Classes.CondType11 import CondType11
 from ..Classes.CondType12 import CondType12
+from ..Classes.CondType12B import CondType12B
 from ..Classes.CondType13 import CondType13
 from ..Classes.CondType21 import CondType21
 from ..Classes.CondType22 import CondType22
