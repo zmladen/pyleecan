@@ -16,10 +16,9 @@ def _get_ref_line(self):
     line_list = self.get_lines()
     # Search for the reference line
     for idx, line in enumerate(line_list):
-        if hasattr(line, "is_ref") and line.is_ref:
+        if line and line.prop_dict and line.prop_dict.get("ref"):
             ref_line = line.copy()
             ref_idx = idx
-
             return ref_line, ref_idx
 
     # If no reference line is found, find the longest line

@@ -835,7 +835,7 @@
             },
             {
                 "as_dict": "",
-                "desc": "(advanced) cf schematics, conductor diameter",
+                "desc": "(advanced) cf schematics, conductor diameter (if none the max width is calculated with comp_width)",
                 "max": "",
                 "min": "0",
                 "name": "Wins_cond",
@@ -13542,17 +13542,6 @@
                 "type": "complex",
                 "unit": "-",
                 "value": 0
-            },
-            {
-                "as_dict": "",
-                "desc": "sets the segment to be reference. Important for wire placement",
-                "max": "",
-                "min": "",
-                "name": "is_ref",
-                "size": "0",
-                "type": "bool",
-                "unit": "-",
-                "value": false
             }
         ]
     },
@@ -17342,7 +17331,6 @@
             "get_dim_wind",
             "get_conductor",
             "plot_schematics",
-            "plot_active",
             "plot"
         ],
         "mother": "Slot",

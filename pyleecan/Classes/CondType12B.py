@@ -551,7 +551,7 @@ class CondType12B(Conductor):
     Wins_cond = property(
         fget=_get_Wins_cond,
         fset=_set_Wins_cond,
-        doc="""(advanced) cf schematics, conductor diameter
+        doc="""(advanced) cf schematics, conductor diameter (if none the max width is calculated with comp_width)
 
         :Type: float
         :min: 0

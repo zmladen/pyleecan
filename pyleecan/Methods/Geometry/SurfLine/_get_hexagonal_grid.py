@@ -1,7 +1,7 @@
 from numpy import sqrt
 
 
-def _get_hexagonal_grid(self, Wwire, is_outwards):
+def _get_hexagonal_grid(self, Wwire):
     """
     Creates a hexagonal grid of points aligned with a reference line.
 
@@ -18,7 +18,7 @@ def _get_hexagonal_grid(self, Wwire, is_outwards):
 
     ref_line, ref_idx = self._get_ref_line()
     min_x, max_x, min_y, max_y = self._get_bounding_box()
-    Zi = self._get_init_wire_coordinate(Wwire, is_outwards)
+    Zi = self._get_init_wire_coordinate(Wwire)
     num_points_x = int(abs(max_x - min_x) // Wwire)
     num_points_y = int(abs(max_y - min_y) // (Wwire * sqrt(3) / 2))
 

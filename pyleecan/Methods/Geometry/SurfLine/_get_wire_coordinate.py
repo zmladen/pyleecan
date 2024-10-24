@@ -7,7 +7,7 @@ def gen_wire_boundary(center, radius, num_points=16):
     return [center + radius * exp(1j * angle) for angle in angles]
 
 
-def _get_wire_coordinate(self, Wwire, is_outwards):
+def _get_wire_coordinate(self, Wwire):
     """
     Filters the grid points to only keep the ones inside the polygon.
 
@@ -20,7 +20,7 @@ def _get_wire_coordinate(self, Wwire, is_outwards):
     - filtered_points: list of complex points that are inside the polygon.
     """
 
-    grid_points = self._get_hexagonal_grid(Wwire, is_outwards)
+    grid_points = self._get_hexagonal_grid(Wwire)
 
     polygon_vertices = []
     for line in self.get_lines():

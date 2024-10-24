@@ -128,11 +128,6 @@ except ImportError as error:
     plot_schematics = error
 
 try:
-    from ..Methods.Slot.SlotW31B.plot_active import plot_active
-except ImportError as error:
-    plot_active = error
-
-try:
     from ..Methods.Slot.SlotW31B.plot import plot
 except ImportError as error:
     plot = error
@@ -387,17 +382,6 @@ class SlotW31B(Slot):
         )
     else:
         plot_schematics = plot_schematics
-    # cf Methods.Slot.SlotW31B.plot_active
-    if isinstance(plot_active, ImportError):
-        plot_active = property(
-            fget=lambda x: raise_(
-                ImportError(
-                    "Can't use SlotW31B method plot_active: " + str(plot_active)
-                )
-            )
-        )
-    else:
-        plot_active = plot_active
     # cf Methods.Slot.SlotW31B.plot
     if isinstance(plot, ImportError):
         plot = property(

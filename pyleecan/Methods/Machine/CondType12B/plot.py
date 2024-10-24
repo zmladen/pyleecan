@@ -1,6 +1,6 @@
 from matplotlib.patches import Circle, Patch
 from ....Functions.init_fig import init_fig
-from numpy import exp, pi, sqrt, sin, cos
+from numpy import exp, pi, sqrt, sin, cos, array, mean
 
 from ....definitions import config_dict
 
@@ -71,6 +71,31 @@ def plot(self, is_show_fig=True, fig=None, ax=None, return_patches=False):
         center_list.append((-a, a))
         center_list.append((-a, -a))
     else:
+        # # For Nwppc > 4
+        # # http://www.jonahkadoko.com/2015/08/21/packing-circles-in-a-big-circle/
+        # center_list = []
+        # r = (self.Wwire + 2 * self.Wins_wire) / 2  # Radius of small circles
+        # R = self.comp_width() / 1  # Radius of the big circle
+        # delta_x = 2 * r
+        # delta_y = r * sqrt(3)
+
+        # positions = []
+        # y = -R + r
+        # while y <= R - r:
+        #     x_offset = 0 if int(round((y + R) / delta_y)) % 2 == 0 else r
+        #     x = -R + r + x_offset
+        #     while x <= R - r:
+        #         distance = sqrt(x**2 + y**2)
+        #         if distance + r <= R:
+        #             positions.append((distance, (x, y)))
+        #         x += delta_x
+        #     y += delta_y
+
+        # # Sort positions by distance from center and select up to Nwppc
+        # positions.sort()
+        # for pos in positions[: self.Nwppc]:
+        #     center_list.append(pos[1])
+
         # https://math.stackexchange.com/questions/1283085/hexagon-packing-in-a-circle
         d = 2 * (self.Wwire / 2 + self.Wins_wire)
 
@@ -106,8 +131,6 @@ def plot(self, is_show_fig=True, fig=None, ax=None, return_patches=False):
                 if counts >= self.Nwppc:
                     break
             ring += 1
-
-        # raise NotPlotableError("You can't plot a coil with Nwppc>4")
 
     for center in center_list:
         # Adjust center by origin

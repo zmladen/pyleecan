@@ -1,8 +1,8 @@
 from ....Functions.init_fig import init_fig
 from ....definitions import config_dict
-from matplotlib.patches import Circle, Polygon
+from matplotlib.patches import Polygon
 from matplotlib.collections import PatchCollection
-from numpy import array, exp, pi
+from numpy import array
 
 
 ROTOR_COLOR = config_dict["PLOT"]["COLOR_DICT"]["ROTOR_COLOR"]
@@ -52,7 +52,7 @@ def plot(
 
     # Add the slot to the fig
     if self.get_is_stator:
-        patches = surf.get_patches(color=STATOR_COLOR)
+        patches = surf.get_patches(color="white")  # STATOR_COLOR
     else:
         patches = surf.get_patch(color=ROTOR_COLOR)
     for patch in patches:
@@ -91,9 +91,7 @@ def plot(
         all_colors = []
 
         for surface in surf_list:
-            w_cord = surface._get_wire_coordinate(
-                self.get_Wins_cond(), self.is_outwards()
-            )
+            w_cord = surface._get_wire_coordinate(self.get_Wins_cond())
             conductor = self.get_conductor()
 
             for wire in w_cord:

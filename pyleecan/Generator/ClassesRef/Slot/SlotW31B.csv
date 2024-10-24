@@ -37,5 +37,4 @@ Slot,Slot,_comp_line_dict,VERSION,1,Open slot with back width and back angle
 ,,get_dim_wind,,,
 ,,get_conductor,,,
 ,,plot_schematics,,,
-,,plot_active,,,,,,
 ,,plot,,,,,,
