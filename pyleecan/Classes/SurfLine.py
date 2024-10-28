@@ -85,9 +85,16 @@ except ImportError as error:
     _get_ref_line = error
 
 try:
-    from ..Methods.Geometry.SurfLine._get_wire_coordinate import _get_wire_coordinate
+    from ..Methods.Geometry.SurfLine.comp_conductor_centers import (
+        comp_conductor_centers,
+    )
 except ImportError as error:
-    _get_wire_coordinate = error
+    comp_conductor_centers = error
+
+try:
+    from ..Methods.Geometry.SurfLine.build_geometry_wire import build_geometry_wire
+except ImportError as error:
+    build_geometry_wire = error
 
 try:
     from ..Methods.Geometry.SurfLine.rotate import rotate
@@ -253,18 +260,30 @@ class SurfLine(Surface):
         )
     else:
         _get_ref_line = _get_ref_line
-    # cf Methods.Geometry.SurfLine._get_wire_coordinate
-    if isinstance(_get_wire_coordinate, ImportError):
-        _get_wire_coordinate = property(
+    # cf Methods.Geometry.SurfLine.comp_conductor_centers
+    if isinstance(comp_conductor_centers, ImportError):
+        comp_conductor_centers = property(
             fget=lambda x: raise_(
                 ImportError(
-                    "Can't use SurfLine method _get_wire_coordinate: "
-                    + str(_get_wire_coordinate)
+                    "Can't use SurfLine method comp_conductor_centers: "
+                    + str(comp_conductor_centers)
                 )
             )
         )
     else:
-        _get_wire_coordinate = _get_wire_coordinate
+        comp_conductor_centers = comp_conductor_centers
+    # cf Methods.Geometry.SurfLine.build_geometry_wire
+    if isinstance(build_geometry_wire, ImportError):
+        build_geometry_wire = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use SurfLine method build_geometry_wire: "
+                    + str(build_geometry_wire)
+                )
+            )
+        )
+    else:
+        build_geometry_wire = build_geometry_wire
     # cf Methods.Geometry.SurfLine.rotate
     if isinstance(rotate, ImportError):
         rotate = property(

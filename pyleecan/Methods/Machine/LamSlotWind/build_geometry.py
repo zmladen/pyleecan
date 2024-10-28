@@ -12,7 +12,9 @@ from ....Functions.labels import (
 )
 
 
-def build_geometry(self, sym=1, alpha=0, delta=0, is_circular_radius=False):
+def build_geometry(
+    self, sym=1, alpha=0, delta=0, is_circular_radius=False, is_add_wires=False
+):
     """Build the geometry of the Lamination with winding in slots
 
     Parameters
@@ -27,7 +29,8 @@ def build_geometry(self, sym=1, alpha=0, delta=0, is_circular_radius=False):
         Complex value for translation
     is_circular_radius : bool
         True to add surfaces to "close" the Lamination radii
-
+    is_add_wires : bool
+        Return wires instead of active surfaces
     Returns
     -------
     surf_list : list
@@ -74,12 +77,27 @@ def build_geometry(self, sym=1, alpha=0, delta=0, is_circular_radius=False):
             # for each part of the winding surface in the slot
             for surf in surf_Wind:
                 new_surf = surf.copy()
-                # changing the slot reference number
-                new_surf.label = update_RTS_index(
-                    label=surf.label, S_id=ii, surf_type_label=WIND_LAB
-                )
-                new_surf.rotate(ii * slot_pitch)
-                surf_list.append(new_surf)
+
+                if is_add_wires:
+                    if self.winding.conductor is not None:
+                        for surf_wire in surf.build_geometry_wire(
+                            self.winding.conductor
+                        ):
+                            surf_wire.rotate(ii * slot_pitch)
+
+                            surf_list.append(surf_wire)
+
+                            surf_wire.label = update_RTS_index(
+                                label=surf.label, S_id=ii, surf_type_label=WIND_LAB
+                            )
+                else:
+                    new_surf.label = update_RTS_index(
+                        label=surf.label, S_id=ii, surf_type_label=WIND_LAB
+                    )
+                    new_surf.rotate(ii * slot_pitch)
+
+                    surf_list.append(new_surf)
+
         # Update the winding BC (if winding side matches sym lines ex: SlotM18)
         if self.slot.is_full_pitch_active() and sym > 1:
             for surf in surf_list:

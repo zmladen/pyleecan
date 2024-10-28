@@ -7,3 +7,4 @@ Machine,,check,VERSION,1,abstact class for conductors
 ,,comp_skin_effect_resistance,,,
 ,,comp_skin_effect_inductance,,,
 ,,comp_temperature_effect,,,
+,,build_geometry,,,

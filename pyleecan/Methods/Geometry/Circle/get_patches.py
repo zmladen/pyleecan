@@ -10,7 +10,12 @@ PATCH_EDGE_ALPHA = config_dict["PLOT"]["COLOR_DICT"]["PATCH_EDGE_ALPHA"]
 
 
 def get_patches(
-    self, color=PATCH_COLOR, edgecolor=None, is_edge_only=False, linestyle=None
+    self,
+    color=PATCH_COLOR,
+    edgecolor=None,
+    is_edge_only=False,
+    linestyle=None,
+    hatch=None,
 ):
     """Returns the Circle Patch to be display in matplotlib
 
@@ -49,7 +54,6 @@ def get_patches(
     # the coordinates of the center of the circle
     Zr = self.center.real
     Zi = self.center.imag
-
     return [
         Circle(
             xy=(Zr, Zi),
@@ -57,5 +61,6 @@ def get_patches(
             facecolor=color,
             edgecolor=edgecolor,
             linestyle=linestyle,
+            hatch=hatch,
         )
     ]

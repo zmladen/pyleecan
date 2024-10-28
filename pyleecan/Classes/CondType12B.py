@@ -79,6 +79,16 @@ try:
 except ImportError as error:
     is_round_wire = error
 
+try:
+    from ..Methods.Machine.CondType12B.build_geometry import build_geometry
+except ImportError as error:
+    build_geometry = error
+
+try:
+    from ..Methods.Machine.CondType12B.comp_wire_centers import comp_wire_centers
+except ImportError as error:
+    comp_wire_centers = error
+
 
 from numpy import isnan
 from ._check import InitUnKnowClassError
@@ -224,6 +234,30 @@ class CondType12B(Conductor):
         )
     else:
         is_round_wire = is_round_wire
+    # cf Methods.Machine.CondType12B.build_geometry
+    if isinstance(build_geometry, ImportError):
+        build_geometry = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use CondType12B method build_geometry: "
+                    + str(build_geometry)
+                )
+            )
+        )
+    else:
+        build_geometry = build_geometry
+    # cf Methods.Machine.CondType12B.comp_wire_centers
+    if isinstance(comp_wire_centers, ImportError):
+        comp_wire_centers = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use CondType12B method comp_wire_centers: "
+                    + str(comp_wire_centers)
+                )
+            )
+        )
+    else:
+        comp_wire_centers = comp_wire_centers
     # generic save method is available in all object
     save = save
     # get_logger method is available in all object

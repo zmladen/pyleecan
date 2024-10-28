@@ -815,7 +815,9 @@
             "comp_height_wire",
             "comp_nb_circumferential_wire",
             "comp_nb_radial_wire",
-            "is_round_wire"
+            "is_round_wire",
+            "build_geometry",
+            "comp_wire_centers"
         ],
         "mother": "Conductor",
         "name": "CondType12B",
@@ -1106,7 +1108,8 @@
             "check",
             "comp_skin_effect_resistance",
             "comp_skin_effect_inductance",
-            "comp_temperature_effect"
+            "comp_temperature_effect",
+            "build_geometry"
         ],
         "mother": "",
         "name": "Conductor",
@@ -18460,7 +18463,8 @@
             "_get_hexagonal_grid",
             "_get_init_wire_coordinate",
             "_get_ref_line",
-            "_get_wire_coordinate",
+            "comp_conductor_centers",
+            "build_geometry_wire",
             "rotate",
             "scale",
             "translate"

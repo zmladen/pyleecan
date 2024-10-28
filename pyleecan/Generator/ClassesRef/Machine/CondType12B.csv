@@ -19,3 +19,5 @@ Machine,Conductor,check,VERSION,1,parallel stranded conductor consisting of at l
 ,,comp_nb_circumferential_wire,,,,,,
 ,,comp_nb_radial_wire,,,,,,
 ,,is_round_wire,,,,,,
+,,build_geometry,,,
+,,comp_wire_centers,,,

@@ -43,6 +43,11 @@ try:
 except ImportError as error:
     comp_temperature_effect = error
 
+try:
+    from ..Methods.Machine.Conductor.build_geometry import build_geometry
+except ImportError as error:
+    build_geometry = error
+
 
 from numpy import isnan
 from ._check import InitUnKnowClassError
@@ -99,6 +104,17 @@ class Conductor(FrozenClass):
         )
     else:
         comp_temperature_effect = comp_temperature_effect
+    # cf Methods.Machine.Conductor.build_geometry
+    if isinstance(build_geometry, ImportError):
+        build_geometry = property(
+            fget=lambda x: raise_(
+                ImportError(
+                    "Can't use Conductor method build_geometry: " + str(build_geometry)
+                )
+            )
+        )
+    else:
+        build_geometry = build_geometry
     # generic save method is available in all object
     save = save
     # get_logger method is available in all object

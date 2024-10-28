@@ -91,7 +91,7 @@ def plot(
         all_colors = []
 
         for surface in surf_list:
-            w_cord = surface._get_wire_coordinate(self.get_Wins_cond())
+            w_cord = surface.comp_conductor_centers(self.get_Wins_cond())
             conductor = self.get_conductor()
 
             for wire in w_cord:

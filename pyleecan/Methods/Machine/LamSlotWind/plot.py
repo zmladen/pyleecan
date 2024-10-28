@@ -40,6 +40,7 @@ def plot(
     is_clean_plot=False,
     is_winding_connection=False,
     is_winding_connection_phase_A=False,
+    is_add_wires=False,
 ):
     """Plot the Lamination in a matplotlib fig
 
@@ -81,6 +82,8 @@ def plot(
         True to display winding connections (plot based on plot_polar_layout method of swat-em)
     is_winding_connection : bool
         True to display winding connections on phase A only
+    is_add_wires : bool
+        Plot wires instead of active surfaces
     Returns
     -------
     patches : list
@@ -100,7 +103,9 @@ def plot(
         is_winding_connection = False
 
     # Get the LamSlot surface(s)
-    surf_list = self.build_geometry(sym=sym, alpha=alpha, delta=delta)
+    surf_list = self.build_geometry(
+        sym=sym, alpha=alpha, delta=delta, is_add_wires=is_add_wires
+    )
 
     patches = list()
     # getting the number of phases and winding connection matrix
