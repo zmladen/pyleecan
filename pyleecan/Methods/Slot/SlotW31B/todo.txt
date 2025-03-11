@@ -13,6 +13,7 @@
 [x] plot_schematics
 
 [] - Write function that returns the max number of conductors for all active areas.
+[] - Instead of calculating max radius for Wins_cond use Wins_cond to calculate the Nppc
 
 **********   "Example" ***********************************************
     if wind_mat is None:  # Default : Only one zone monocolor

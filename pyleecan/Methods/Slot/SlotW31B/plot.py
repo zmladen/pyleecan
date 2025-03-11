@@ -59,8 +59,7 @@ def plot(
         ax.add_patch(patch)
 
     if wind_mat is None:  # Default : Only one zone monocolor
-        Nrad, Ntan, qs = 1, 1, 1
-        Zs = self.Zs
+        Nrad, Ntan, qs, Zs = 1, 1, 1, self.Zs
     else:
         (Nrad, Ntan, Zs, qs) = wind_mat.shape
 
